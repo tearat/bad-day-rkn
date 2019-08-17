@@ -1,0 +1,12 @@
+Options -Indexes
+
+RewriteEngine On
+
+ErrorDocument 404 /index.php?page=404
+
+RewriteRule ^$ index.php?page=index
+
+RewriteRule ^addmsg$ index.php?page=addmsg
+RewriteRule ^getlink$ index.php?page=getlink
+RewriteRule ^msg/([a-zA-Z0-9_-]+)$ index.php?page=msg&link=$1
+RewriteRule ^read/([a-zA-Z0-9_-]+)$ index.php?page=read&link=$1

@@ -1,0 +1,19 @@
+<div id="index">
+    <div class="container">
+        <h1>Сообщение создано</h1>
+        <p class="info">Ссылка сгенерирована. Отправь её получателю!</p>
+        <div class="link-wrapper">
+            <input id="theLink" class="link" onClick="this.select();" value="<?php echo $_SERVER['SERVER_NAME']; ?>/msg/<?php echo $link; ?>"></input>
+        </div>
+        <a href="#" class="button" onclick="copyLink()">Скопировать в буфер обмена</a>
+    </div>
+</div>
+
+
+<script>
+    function copyLink() {
+        var copyText = document.getElementById("theLink");
+        copyText.select();
+        document.execCommand("Copy");
+    }
+</script>

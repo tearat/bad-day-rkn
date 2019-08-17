@@ -1,0 +1,40 @@
+<div id="index">
+    <div class="container">
+        <p class="info">Введи сообщение в поле ниже. <br>
+        Скрипт создаст ссылку с уникальным адресом. <br>
+        Как только она будет открыта, сообщение будет уничтожено.</p>
+        <form action="/getlink" method="post" id="form">
+            <textarea name="text" placeholder="Введи сообщение..." id="text"></textarea>
+            <p class="info">Время жизни:</p>
+            <select name="lifetime">
+                <option value="60">1 минута</option>
+                <option value="300">5 минут</option>
+                <option value="600">10 минут</option>
+                <option value="3600" selected>1 час</option>
+                <option value="86400">1 день</option>
+            </select>
+            <a href="#" id="submit_btn" class="button">Создать</a>
+            <p class="warning" id="warning">Поле для сообщения не может быть пустым</p>
+        </form>
+    </div>
+</div>
+
+<script>
+    var button = $("#submit_btn");
+    var form = $("#form");
+    var warning = $("#warning");
+
+    warning.fadeTo(0,0);
+
+    $("#submit_btn").on("click", function(){
+        var text = $("#text").val();
+        if ( text )
+        {
+            form.submit();
+        }
+        else
+        {
+            warning.fadeTo(300,1).delay(2000).fadeTo(300,0);
+        }
+    });
+</script>
